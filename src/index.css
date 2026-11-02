@@ -1,0 +1,220 @@
+/* =========================================
+   index.css — Semua tampilan website
+   ========================================= */
+
+/* 1. Variabel warna (ubah di sini untuk ganti tema) */
+:root {
+  --bg: #0b1020;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --primary: #6366f1;
+  --secondary: #22d3ee;
+  --glass: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.1);
+  --heading: #ffffff;
+  --nav-bg: rgba(11, 16, 32, 0.7);
+  --tag-text: #c7d2fe;
+  --glow1: rgba(99, 102, 241, 0.25);
+  --glow2: rgba(34, 211, 238, 0.15);
+}
+
+/* 1b. Warna untuk Light Mode (aktif saat <html data-theme="light">) */
+[data-theme='light'] {
+  --bg: #f5f7fb;
+  --text: #1e293b;
+  --muted: #64748b;
+  --glass: rgba(255, 255, 255, 0.75);
+  --border: rgba(15, 23, 42, 0.1);
+  --heading: #0f172a;
+  --nav-bg: rgba(255, 255, 255, 0.8);
+  --tag-text: #4338ca;
+  --glow1: rgba(99, 102, 241, 0.15);
+  --glow2: rgba(34, 211, 238, 0.12);
+}
+
+/* 2. Reset dasar */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  transition: background-color 0.3s, color 0.3s;
+  /* cahaya gradasi lembut di latar belakang */
+  background-image:
+    radial-gradient(circle at 15% 10%, var(--glow1), transparent 40%),
+    radial-gradient(circle at 85% 40%, var(--glow2), transparent 40%);
+  background-attachment: fixed;
+}
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* 3. Class yang dipakai berulang */
+.gradient-text {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.glass {                       /* efek kaca (glassmorphism) */
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+.btn {
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.btn-primary {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: #fff;
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4); }
+.btn-outline { border: 1px solid var(--border); }
+.btn-outline:hover { border-color: var(--secondary); color: var(--secondary); }
+
+/* 4. Navbar */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 8%;
+  background: var(--nav-bg);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.logo { font-size: 1.5rem; font-weight: 700; }
+.logo span { color: var(--secondary); }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { color: var(--muted); font-weight: 500; transition: 0.3s; }
+.nav-links a:hover { color: var(--heading); }
+.menu-btn { display: none; background: none; border: none; color: var(--heading); font-size: 1.5rem; cursor: pointer; }
+
+/* 5. Hero */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; padding: 0 8%;
+}
+.badge {
+  padding: 6px 16px; border-radius: 999px; font-size: 0.9rem;
+  border: 1px solid var(--border); background: var(--glass); margin-bottom: 20px;
+}
+.hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.2; }
+.hero-role { font-size: 1.3rem; font-weight: 600; margin-top: 12px; }
+.hero-sub { color: var(--muted); margin-bottom: 32px; }
+.hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* 6. Section umum */
+.section { padding: 90px 8%; max-width: 1100px; margin: 0 auto; }
+.section-title { font-size: 2rem; text-align: center; margin-bottom: 48px; }
+
+/* 7. About */
+.about-grid { display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: center; }
+.avatar {
+  width: 220px; height: 220px; border-radius: 24px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 5rem; font-weight: 700; color: #fff;
+}
+.about-text { color: var(--muted); margin-bottom: 24px; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.stat { padding: 18px; text-align: center; }
+.stat h3 { font-size: 1.6rem; }
+.stat p { color: var(--muted); font-size: 0.9rem; }
+
+/* 8. Skills */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.skill { padding: 20px; }
+.skill-head { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 500; }
+.bar { height: 8px; background: var(--border); border-radius: 999px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--primary), var(--secondary)); }
+
+/* 9. Projects */
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+.project { padding: 28px; transition: 0.3s; }
+.project:hover { transform: translateY(-6px); border-color: var(--primary); }
+.project-icon { font-size: 2.2rem; margin-bottom: 14px; }
+.project h3 { margin-bottom: 8px; }
+.project p { color: var(--muted); font-size: 0.95rem; margin-bottom: 16px; }
+.tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.tags span { font-size: 0.8rem; padding: 4px 12px; border-radius: 999px; background: rgba(99, 102, 241, 0.2); color: var(--tag-text); }
+
+/* 10. Contact & Footer */
+.contact { text-align: center; padding: 56px 24px; }
+.contact h2 { font-size: 2rem; }
+.contact p { color: var(--muted); margin: 10px 0 28px; }
+.footer { text-align: center; padding: 28px; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
+
+/* 11. Responsif untuk layar HP */
+@media (max-width: 768px) {
+  .menu-btn { display: block; }
+  .nav-links {
+    display: none;
+    position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; gap: 0; background: var(--bg);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { display: block; padding: 14px 8%; }
+  .about-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .avatar { width: 160px; height: 160px; font-size: 4rem; }
+}
+
+/* 12. Tambahan untuk isi baru */
+.hero-sub { max-width: 640px; }
+.hero-loc { color: var(--muted); font-size: 0.9rem; margin: -16px 0 28px; }
+.card-title { font-size: 1.1rem; margin-bottom: 14px; }
+.list-row {
+  display: flex; justify-content: space-between; gap: 12px;
+  padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.95rem;
+}
+.list-row:last-child { border-bottom: none; }
+.year { color: var(--secondary); font-size: 0.85rem; white-space: nowrap; }
+.chip-box { margin-top: 20px; }
+.quote { font-style: italic; color: var(--text); max-width: 600px; margin: 0 auto 24px !important; }
+.email-text { display: inline-block; margin-top: 20px; font-size: 0.9rem; color: var(--muted); }
+.email-text:hover { color: var(--secondary); }
+.two-col { margin-top: 20px; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+
+/* 13. Kartu proyek bergambar */
+.project { padding: 14px 14px 20px; display: block; }
+.project-thumb {
+  aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; margin-bottom: 16px;
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(34, 211, 238, 0.2));
+  display: flex; align-items: center; justify-content: center;
+}
+.project-thumb img { width: 100%; height: 100%; object-fit: cover; transition: 0.4s; }
+.project:hover .project-thumb img { transform: scale(1.05); }
+.project-thumb .project-icon { font-size: 3rem; margin: 0; }
+.project h3 { padding: 0 6px; margin-bottom: 6px; }
+.project-foot { display: flex; justify-content: space-between; align-items: flex-end; padding: 0 6px; }
+.project-foot p { color: var(--muted); font-size: 0.85rem; margin: 0; }
+.project-num { font-size: 1.6rem; font-weight: 600; white-space: nowrap; }
+.project-foot { gap: 12px; }
+
+/* 14. Foto profil */
+.avatar { height: 280px; padding: 4px; overflow: hidden; }
+.avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 20px; }
+@media (max-width: 768px) { .avatar { height: 210px; } }
+
+/* 15. Kartu nama keahlian */
+.skill-name { display: flex; align-items: center; gap: 12px; font-weight: 500; }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(90deg, var(--primary), var(--secondary)); flex-shrink: 0; }
+
+/* 16. Tombol Dark / Light mode */
+.nav-right { display: flex; align-items: center; gap: 24px; }
+.theme-btn {
+  padding: 6px 14px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--border); background: var(--glass); color: var(--text);
+  font-family: inherit; font-size: 0.85rem; font-weight: 600; transition: 0.3s;
+}
+.theme-btn:hover { border-color: var(--secondary); }
+h1, h2, h3, .logo { color: var(--heading); }
+.gradient-text { color: transparent; }
+[data-theme='light'] .skill, [data-theme='light'] .project, [data-theme='light'] .stat,
+[data-theme='light'] .contact { box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05); }
+@media (max-width: 768px) { .nav-right { gap: 12px; } }
