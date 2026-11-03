@@ -14,7 +14,6 @@ export const profile = {
   location: 'Bontang, Indonesia',
   about:
     'Saya Muhammad Nabil Abdillah, biasa dipanggil Nabil. Saya pribadi yang disiplin, bertanggung jawab, dan memiliki motivasi tinggi untuk terus belajar serta berkembang. Mampu bekerja secara mandiri maupun dalam tim dengan komunikasi yang baik. Memiliki ketertarikan besar dalam bidang teknologi informasi dan administrasi, serta berorientasi pada hasil kerja yang berkualitas.',
-  quote: "Today's discipline is tomorrow's foundation. Keep growing, because great results are born from consistency.",
   email: 'mhmmdnabilabdillah@gmail.com',
   github: 'https://github.com/MuhammadNabilAbdillah',
   instagram: 'https://instagram.com/mhdnabil.abd',

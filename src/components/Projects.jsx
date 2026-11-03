@@ -33,7 +33,7 @@ function ProjectCard({ p, index }) {
 export default function Projects() {
   return (
     <section id="projects" className="section">
-      <h2 className="section-title">Proyek <span className="gradient-text">Pilihan</span></h2>
+      <h2 className="section-title">Project <span className="gradient-text">Saya</span></h2>
 
       <div className="projects-grid">
         {projects.map((p, i) => (

@@ -1,4 +1,3 @@
-// About — perkenalan singkat, foto profil, dan beberapa angka ringkasan.
 import { useState } from 'react'
 import { profile, stats } from '../data'
 
@@ -22,7 +21,7 @@ export default function About() {
         <div>
           <p className="about-text">{profile.about}</p>
 
-          {/* .map() mengulang data stats menjadi beberapa kotak */}
+          {/* Mengulang data stats menjadi beberapa kotak */}
           <div className="stats">
             {stats.map((s) => (
               <div key={s.label} className="stat glass">
