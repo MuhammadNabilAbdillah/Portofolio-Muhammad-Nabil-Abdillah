@@ -1,46 +1,36 @@
-# portnabil
+# 🌐 Portofolio Pribadi - Muhammad Nabil Abdillah
 
-Website portofolio sederhana dengan **React.js** (dibuat menggunakan **Vite**).
+Website portofolio pribadi modern yang dibangun menggunakan **React.js** dan **Vite**. Dirancang dengan tema gelap yang elegan, efek *glassmorphism*, serta tata letak yang sepenuhnya responsif untuk berbagai ukuran perangkat.
 
-## Cara menjalankan
+---
 
-Pastikan Node.js (versi 18 ke atas) sudah terinstal, lalu buka terminal di folder `portnabil`:
+## 🛠️ Teknologi yang Digunakan
 
-```bash
-npm install
-npm run dev
-```
+- **Frontend Framework:** [React.js (v18)](https://react.dev/)[cite: 7]
+- **Build Tool:** [Vite](https://vitejs.dev/)[cite: 9, 10]
+- **Styling:** CSS3 Modern (Custom Properties, Flexbox, Grid, & Glassmorphism)
+- **Language:** JavaScript (ES6+)
 
-Buka alamat yang muncul di terminal (biasanya http://localhost:5173).
+---
 
-## Struktur folder
+## 📁 Struktur Folder Project
 
-```
+Project ini terorganisasi ke dalam beberapa komponen modular dan file data terpusat agar mudah dikelola dan dikembangkan:
+
+```text
 portnabil/
-├── index.html            → halaman HTML utama, berisi <div id="root">
-├── package.json          → daftar library & perintah (dev, build)
-├── vite.config.js        → pengaturan Vite
+├── index.html            # Halaman HTML utama (titik muat React)[cite: 6, 9]
+├── package.json          # Daftar dependensi dan skrip konfigurasi
+├── vite.config.js        # Konfigurasi bundler Vite[cite: 9, 10]
 └── src/
-    ├── main.jsx          → titik awal, merender <App /> ke #root
-    ├── App.jsx           → menyusun semua komponen
-    ├── data.js           → SEMUA isi website (nama, skill, proyek, kontak)
-    ├── index.css         → semua tampilan (warna, layout, responsif)
-    └── components/
-        ├── Navbar.jsx    → menu atas + tombol Dark/Light mode
-        ├── Hero.jsx      → bagian pembuka
-        ├── About.jsx     → tentang saya + statistik
-        ├── Skills.jsx    → keahlian dengan progress bar
-        ├── Projects.jsx  → kartu proyek
-        └── Contact.jsx   → tautan kontak
-```
-
-## Penjelasan singkat (untuk presentasi)
-
-1. **Komponen** — Website dipecah menjadi beberapa komponen kecil (Navbar, Hero, About, dll.) agar kode rapi dan mudah dirawat. `App.jsx` hanya menyusunnya dari atas ke bawah.
-2. **Data terpisah** — Isi website disimpan di `data.js`. Komponen mengambil data dengan `import`, lalu menampilkannya. Kalau isi berubah, cukup edit `data.js` tanpa menyentuh komponen.
-3. **`.map()`** — Dipakai untuk mengulang data (daftar skill, proyek, statistik) menjadi elemen tampilan, sehingga tidak perlu menulis HTML berulang-ulang.
-4. **`useState`** — Dipakai di Navbar untuk menyimpan kondisi menu HP (terbuka/tertutup). Saat tombol ☰ ditekan, state berubah dan React otomatis memperbarui tampilan.
-5. **Props/style dinamis** — Lebar progress bar di Skills diatur dari nilai `level` dengan `style={{ width: level + '%' }}`.
-6. **Tampilan modern** — Tema gelap, teks gradasi, dan efek kaca (*glassmorphism*) dengan `backdrop-filter: blur()`.
-7. **Responsif** — Dengan `@media (max-width: 768px)`, tata letak menyesuaikan layar HP dan menu berubah menjadi tombol ☰.
-8. **Dark / Light mode** — Tombol di Navbar mengubah state `theme`. `useEffect` memasang atribut `data-theme` di tag `<html>`, lalu CSS mengganti nilai variabel warna (`[data-theme='light'] { ... }`). Pilihan tema disimpan di `localStorage` sehingga tetap sama saat halaman dibuka lagi.
+    ├── main.jsx          # Entry point yang merender komponen utama ke DOM
+    ├── App.jsx           # Komponen utama penyusun tata letak halaman[cite: 3, 9]
+    ├── data.js           # Pusat penyimpanan data (profil, skill, proyek, dll.)
+    ├── index.css         # Styling global, animasi, dan tema
+    └── components/       # Kumpulan komponen modular
+        ├── Navbar.jsx    # Menu navigasi & pengalih tema (Dark/Light)[cite: 9]
+        ├── Hero.jsx      # Bagian perkenalan utama[cite: 9]
+        ├── About.jsx     # Informasi tentang saya & statistik[cite: 9]
+        ├── Skills.jsx    # Daftar keahlian teknis[cite: 9]
+        ├── Projects.jsx  # Galeri kartu proyek[cite: 4, 9]
+        └── Contact.jsx   # Informasi kontak[cite: 9]
